@@ -37,7 +37,7 @@ if __name__ == "__main__":
                 case_data = json.load(f)
             test_algo(api_key, api_address, case_data, algo_name, algo_hash)
         else:
-            print("Skipping test cases...)
+            print("Skipping test cases...")
         publish_algo(api_key, api_address, publish_schema, algo_name, algo_hash)
     else:
         raise Exception("actions/checkout on the local repo must be run before this action can be completed")
