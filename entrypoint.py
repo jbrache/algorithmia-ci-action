@@ -9,6 +9,7 @@ if __name__ == "__main__":
     publish_schema = os.getenv("INPUT_VERSION_SCHEMA")
     repo_name = os.getenv("INPUT_PATH")
     test_algo = os.getenv("TEST_ALGO")
+    print("Test the algorithm? {}".format(test_algo))
 
     algo_hash = os.getenv("GITHUB_SHA")
 
