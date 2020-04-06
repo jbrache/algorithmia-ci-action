@@ -22,16 +22,20 @@ if __name__ == "__main__":
         raise Exception("field 'version_schema' not defined in workflow")
     if not repo_name:
         raise Exception("field 'repo_name' not defined in workflow")
+    if not test_algo:
+        raise Exception("field 'test_algo' not defined in workflow")
 
     if os.path.exists(repo_path):
         with open("{}/{}".format(repo_path, "algorithmia.conf")) as f:
             config_data = json.load(f)
-        with open("{}/{}".format(repo_path, "TEST_CASES.json")) as f:
-            case_data = json.load(f)
+        
         algo_name = "{}/{}".format(config_data['username'], config_data['algoname'])
 
         build_wait(api_key, api_address, algo_name, algo_hash)
-        test_algo(api_key, api_address, case_data, algo_name, algo_hash)
+        if test_algo:
+            with open("{}/{}".format(repo_path, "TEST_CASES.json")) as f:
+                case_data = json.load(f)
+            test_algo(api_key, api_address, case_data, algo_name, algo_hash)
         publish_algo(api_key, api_address, publish_schema, algo_name, algo_hash)
     else:
         raise Exception("actions/checkout on the local repo must be run before this action can be completed")
