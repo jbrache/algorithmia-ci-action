@@ -31,7 +31,7 @@ if __name__ == "__main__":
         algo_name = "{}/{}".format(config_data['username'], config_data['algoname'])
 
         build_wait(api_key, api_address, algo_name, algo_hash)
-        print("Test the algorithm? {}".format(test_algo))
+        print("Test the algorithm? {}".format(test_algo.capitalize))
         if test_algo.capitalize == 'TRUE':
             with open("{}/{}".format(repo_path, "TEST_CASES.json")) as f:
                 case_data = json.load(f)
