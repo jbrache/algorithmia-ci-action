@@ -8,6 +8,7 @@ if __name__ == "__main__":
     api_address = os.getenv("INPUT_API_ADDRESS")
     publish_schema = os.getenv("INPUT_VERSION_SCHEMA")
     repo_name = os.getenv("INPUT_PATH")
+    test_algo = os.getenv("TEST_ALGO")
 
     algo_hash = os.getenv("GITHUB_SHA")
 
@@ -32,7 +33,7 @@ if __name__ == "__main__":
         algo_name = "{}/{}".format(config_data['username'], config_data['algoname'])
 
         build_wait(api_key, api_address, algo_name, algo_hash)
-        if test_algo:
+        if test_algo.capitalize == 'TRUE':
             with open("{}/{}".format(repo_path, "TEST_CASES.json")) as f:
                 case_data = json.load(f)
             test_algo(api_key, api_address, case_data, algo_name, algo_hash)

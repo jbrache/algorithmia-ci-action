@@ -24,6 +24,10 @@ inputs:
   path:
     description: 'directory name for the local project stored in /github/workspace due to an "actions/checkout" command'
     required: true
+  test_algo:
+    description: 'true or false string whether to test an algo with a sample input'
+    required: false
+    default: true
 ```
 
 ```
