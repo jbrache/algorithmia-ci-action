@@ -8,11 +8,8 @@ if __name__ == "__main__":
     api_address = os.getenv("INPUT_API_ADDRESS")
     publish_schema = os.getenv("INPUT_VERSION_SCHEMA")
     repo_name = os.getenv("INPUT_PATH")
-    test_algo = os.getenv("TEST_ALGO")
-    print("Test the algorithm? {}".format(test_algo))
-
+    test_algo = os.getenv("INPUT_TEST_ALGO")
     algo_hash = os.getenv("GITHUB_SHA")
-
 
     repo_path = "/github/workspace/{}".format(repo_name)
 
